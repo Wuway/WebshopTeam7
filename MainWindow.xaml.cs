@@ -19,6 +19,7 @@ namespace WebshopTeam7
         public MainWindow()
         {
             InitializeComponent();
+            // Benjamin was here
         }
     }
 }
