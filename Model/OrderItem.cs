@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebshopTeam7.Model
 {
-    internal class OrderItem
+    public class OrderItem
     {
         public required Order OrderId { get; set; }
         public Product ProductId { get; set; }
