@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebshopTeam7.Model
 {
-    internal class Order
+    public class Order
     {
         //OrderStatus enum til at repræsentere ordre status?
         public enum OrderStatus
@@ -27,7 +27,7 @@ namespace WebshopTeam7.Model
 
         public int OrderId { get; set; }
         //nullable hvis vi tillader folk til at lave ordre uden at lave en konto?
-        public Customer UserId { get; set; } = null;
+        public int Customer { get; set; }
         public DateTime Date { get; set; }
         public OrderStatus Status { get; set; }
         public double OrderTotal { get; set; }
@@ -37,19 +37,16 @@ namespace WebshopTeam7.Model
 
 
 
-        public Order(int orderId, Customer userId, DateTime date, double orderTotal, PayMethod paymentMethod, OrderStatus status)
+        public Order(int orderId, int customer, DateTime date)
         {
             OrderId = orderId;
             Date = date;
-            Status = status;
-            OrderTotal = orderTotal;
-            PaymentMethod = paymentMethod;
-            UserId = userId;
+            Customer = customer;
         }
 
         public override string ToString()
         {
-            return $"Order ID: {OrderId}, User: {UserId?.Name ?? "Guest"}, Date: {Date}, Status: {Status}, Total: {OrderTotal:C}, Payment Method: {PaymentMethod}";
+            return $"Order ID: {OrderId}, Customer: {Customer}, Date: {Date}, Status: {Status}, Total: {OrderTotal:C}, Payment Method: {PaymentMethod}";
         }
     }
 }
