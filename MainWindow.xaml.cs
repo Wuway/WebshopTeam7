@@ -19,7 +19,8 @@ namespace WebshopTeam7
         public MainWindow()
         {
             InitializeComponent();
-            // Benjamin was here
+            IConfigurationRoot config = new ConfigurationBuilder().AddJsonFile("Appsettings.JSON").Build();
+            string? ConnectionString = config.GetConnectionString("DefaultConnection");
         }
     }
 }
